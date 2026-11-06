@@ -5,8 +5,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
   <title>Welcome to my personal site!</title>
-  <meta name="description" content="Varun S. Chavan — Mechanical Engineer & Roboticist. Projects, YouTube, and contact." />
-  <meta name="keywords" content="Varun Chavan, Robotics, Mechanical Engineering, Projects, YouTube" />
+  <meta name="description" content="Varun S. Chavan — Mechanical Engineer & Roboticist. Projects, photography, YouTube, and contact." />
+  <meta name="keywords" content="Varun Chavan, Robotics, Mechanical Engineering, Projects, Photography, Instagram, YouTube" />
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon" />
@@ -101,9 +101,54 @@
     #blog .card.card-blog .card-img img{ width:100%; height:220px; object-fit:cover; display:block; }
     #blog .card-footer{ margin-top:auto; }
 
+    /* Native Instagram profile preview: recent-post grid is rendered by Instagram. */
+    .instagram-embed-shell{
+      max-width: 590px;
+      margin: 0 auto;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.90);
+      box-shadow: 0 10px 30px rgba(0,0,0,.10);
+      overflow: hidden;
+    }
+    .instagram-embed-shell .instagram-media{ width:100% !important; }
+    .instagram-profile-link{ font-size:1.125rem; font-weight:600; text-decoration:none; }
+    @media (max-width: 575.98px){
+      .instagram-embed-shell{ padding:8px; }
+    }
+
     /* Extra space so YouTube never kisses the counters */
     section#work.portfolio-mf{ padding-bottom:80px; }
     .video-wrapper{ margin-bottom:2rem; }
+
+    /* Publications: give author names flexible width and keep status aligned. */
+    #publications .card-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) max-content;
+      align-items: center;
+      column-gap: 20px;
+      row-gap: 8px;
+    }
+    #publications .card-footer .post-author,
+    #publications .card-footer .author {
+      min-width: 0;
+    }
+    #publications .card-footer .author {
+      overflow-wrap: break-word;
+      line-height: 1.6;
+    }
+    #publications .card-footer .post-date {
+      white-space: nowrap;
+      justify-self: end;
+    }
+    @media (max-width: 575.98px) {
+      #publications .card-footer {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      #publications .card-footer .post-date {
+        justify-self: start;
+      }
+    }
 
     /* Minor refinements */
     footer .credits a{ text-decoration:none; }
@@ -121,6 +166,7 @@
           <li><a class="nav-link scrollto" href="#resume">Resume</a></li>
           <li><a class="nav-link scrollto" href="#publications">Publications</a></li>    
           <li><a class="nav-link scrollto" href="#blog">Projects</a></li>
+          <li><a class="nav-link scrollto" href="#photography">Photography</a></li>
           <li><a class="nav-link scrollto" href="#work">YouTube</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
@@ -206,9 +252,14 @@
 
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
+              <h4>PhD in Mechanical Engineering</h4>
+              <h5>2026 - Present</h5>
+              <p><em>Institute of Science Tokyo (Formerly Tokyo Institute of Technology)</em></p>
+            </div>
+            <div class="resume-item">
               <h4>Master in Mechanical Engineering</h4>
               <h5>2024 - 2026</h5>
-              <p><em>Institute of Science Tokyo (Formerly Tokyo Tech)</em></p>
+              <p><em>Institute of Science Tokyo (Formerly Tokyo Institute of Technology)</em></p>
             </div>
             <div class="resume-item">
               <h4>Bachelor in Mechanical Engineering</h4>
@@ -230,8 +281,8 @@
               <h5>June 2022 – Present</h5>
               <p><em>Oriental Yeast Company Ltd, Tokyo, Japan</em></p>
               <ul>
-                <li>Lead and deployed company-wide Spare Part Management System.</li>
-                <li>Development and Beta testing of Production Forecasting System.</li>
+                <li>Led and deployed company-wide Spare Part Management System.</li>
+                <li>Led and developed Production demand Forecasting System.</li>
               </ul>
             </div>
             <div class="resume-item">
@@ -293,46 +344,28 @@
         <!-- Research paper cards -->
         <div class="row gy-3">
     
-          <!-- SII Paper -->
+          <!-- IEEE RA-L Submitted Paper -->
           <div class="col-lg-12">
             <div class="card card-blog">
               <div class="card-body">
                 <h3 class="card-title mb-2">
-                  Feature-Conditioned Reinforcement Learning for Generalizable Engineering Optimization: A multi-modal benchmark study
+                  A Physical Reservoir Computing Approach for Sensorized Medical Phantoms in Abdominal Palpation Simulation
                 </h3>
-    
-                <p class="card-description mb-3">
-                  <strong>Status:</strong> Accepted at <strong>IEEE/SICE International Symposium for System Integration 2026 (SII26)</strong>, Cancun, Mexico.
-                </p>
-    
-                <p class="mb-1">
-                  <a href="https://ieeexplore.ieee.org/document/11404563"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="btn btn-sm btn-primary">
-                    View Paper (IEEE Xplore)
-                  </a>
+
+                <p class="card-description mb-0">
+                  <strong>Status:</strong> Submitted to <strong>IEEE Robotics and Automation Letters (RA-L)</strong>.
                 </p>
               </div>
-    
-              <div class="card-footer d-flex align-items-center justify-content-between">
-                <div class="post-author d-flex align-items-center gap-2">
-                  <img src="assets/img/testimonial-2.jpg"
-                       alt="Varun Chavan"
-                       class="avatar rounded-circle"
-                       width="36"
-                       height="36"
-                       loading="lazy" />
-                  <span class="author">Varun S. Chavan, Mitsuru Endo, Zexin Shan, Yukio Tsutsui</span>
-                </div>
-    
+
+              <div class="card-footer">
+                <span class="author">Varun S. Chavan, Chapa Sirithunge, Kai-Fung Chu, David Hardman, Mitsuru Endo, Thilina Dulantha Lalitharatne, and Fumiya Iida</span>
                 <div class="post-date">
-                  <span class="bi bi-check2-circle"></span> Published
+                  <span class="bi bi-hourglass-split"></span> Submitted
                 </div>
               </div>
             </div>
           </div>
-    
+
           <!-- ICEMS Paper -->
           <div class="col-lg-12">
             <div class="card card-blog">
@@ -358,14 +391,8 @@
                 -->
               </div>
     
-              <div class="card-footer d-flex align-items-center justify-content-between">
+              <div class="card-footer">
                 <div class="post-author d-flex align-items-center gap-2">
-                  <img src="assets/img/testimonial-2.jpg"
-                       alt="Varun Chavan"
-                       class="avatar rounded-circle"
-                       width="36"
-                       height="36"
-                       loading="lazy" />
                   <span class="author">Varun S. Chavan, Mitsuru Endo, Yukio Tsutsui</span>
                 </div>
     
@@ -376,12 +403,48 @@
             </div>
           </div>
     
+
+          <!-- SII Paper -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
+              <div class="card-body">
+                <h3 class="card-title mb-2">
+                  Feature-Conditioned Reinforcement Learning for Generalizable Engineering Optimization: A multi-modal benchmark study
+                </h3>
+    
+                <p class="card-description mb-3">
+                  <strong>Status:</strong> Accepted at <strong>IEEE/SICE International Symposium for System Integration 2026 (SII26)</strong>, Cancun, Mexico.
+                </p>
+    
+                <p class="mb-1">
+                  <a href="https://ieeexplore.ieee.org/document/11404563"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="btn btn-sm btn-primary">
+                    View Paper (IEEE Xplore)
+                  </a>
+                </p>
+              </div>
+    
+              <div class="card-footer">
+                <div class="post-author d-flex align-items-center gap-2">
+                  <span class="author">Varun S. Chavan, Mitsuru Endo, Zexin Shan, Yukio Tsutsui</span>
+                </div>
+    
+                <div class="post-date">
+                  <span class="bi bi-check2-circle"></span> Published
+                </div>
+              </div>
+            </div>
+          </div>
+    
+
         </div>
       </div>
     </section>
     <!-- /Publications -->
     
-    <!-- ======= Projects ======= -->
+    <!-- ======= Projects: detailed research-paper-style list ======= -->
     <section id="blog" class="blog-mf sect-pt4 route bg-photo" style="background-image:url('assets/img/projects-bg.jpg')">
       <div class="container glass-panel">
         <div class="row">
@@ -392,55 +455,111 @@
             </div>
           </div>
         </div>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card card-blog h-100">
-              <div class="card-img"><img src="assets/img/post-1.jpg" alt="OSAKE robot" class="img-fluid" loading="lazy" /></div>
-              <div class="card-body">
-                <div class="card-category-box"><div class="card-category"><h6 class="category">OSAKE</h6></div></div>
-                <h3 class="card-title">Optimal Stiffness and Control Experimentation Robot</h3>
-                <p class="card-description mb-0">OSAKE is a robot with human-like learning properties that learns optimal impedance from repeated physical interactions with the environment.</p>
-              </div>
-              <div class="card-footer d-flex align-items-center justify-content-between">
-                <div class="post-author d-flex align-items-center gap-2">
-                  <img src="assets/img/testimonial-2.jpg" alt="Varun Chavan" class="avatar rounded-circle" width="36" height="36" loading="lazy" />
-                  <span class="author">Varun Chavan</span>
-                </div>
-                <div class="post-date"><span class="bi bi-clock"></span> 10 min</div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card-category-box mb-3">
+              <div class="card-category">
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card card-blog h-100">
-              <div class="card-img"><img src="assets/img/post-2.jpg" alt="ATAV project" class="img-fluid" loading="lazy" /></div>
+        </div>
+
+        <!-- Full-width project entries match the Publications layout. -->
+        <div class="row gy-3">
+          <!-- OSAKE -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
               <div class="card-body">
-                <div class="card-category-box"><div class="card-category"><h6 class="category">ATAV</h6></div></div>
-                <h3 class="card-title">All-Terrain Autonomous Vehicle</h3>
-                <p class="card-description mb-0">The project delivers items autonomously and is able to travel on any terrain.</p>
+                <h3 class="card-title mb-2">Optimal Stiffness and Control Experimentation Robot (OSAKE)</h3>
+                <p class="card-description mb-2">
+                  Developed a research-grade robotic platform to study self-learning, variable-impedance control,
+                  and the generalization ability of a robotic arm across different but related tasks. Implemented
+                  and tested a field-aware variable-impedance iterative learning controller to investigate how
+                  repeated physical interactions can improve tracking and adaptation to new trajectories and shapes.
+                </p>
+                <p class="small text-muted mb-0">
+                  <strong><span style="font-weight: bolder;">Skills:</span></strong> Variable Impedance Control, Iterative learning,
+                  LabVIEW FPGA, NI sbRIO-9629.
+                </p>
               </div>
-              <div class="card-footer d-flex align-items-center justify-content-between">
-                <div class="post-author d-flex align-items-center gap-2">
-                  <img src="assets/img/testimonial-2.jpg" alt="Varun Chavan" class="avatar rounded-circle" width="36" height="36" loading="lazy" />
-                  <span class="author">Varun Chavan</span>
-                </div>
-                <div class="post-date"><span class="bi bi-clock"></span> 10 min</div>
+              <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="author">IIT Gandhinagar · Robotics Research</span>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card card-blog h-100">
-              <div class="card-img"><img src="assets/img/post-3.jpg" alt="Farming Bicycle" class="img-fluid" loading="lazy" /></div>
+          <!-- OYC production forecasting -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
               <div class="card-body">
-                <div class="card-category-box"><div class="card-category"><h6 class="category">Farming Bicycle</h6></div></div>
-                <h3 class="card-title">Semi-Automated Seed & Fertilizer Sowing Bicycle</h3>
-                <p class="card-description mb-0">Performs farming operations like ploughing, seed sowing, and fertilizer spreading with minimal cost and human effort.</p>
+                <h3 class="card-title mb-2">Production Demand Forecasting System</h3>
+                <p class="card-description mb-2">
+                  Led the development of a Python-based Yeast demand forecasting application
+                  for Oriental Yeast Company.&nbsp;</p>
+                <p class="small text-muted mb-0">
+                  <strong>Skills:</strong> Python, Temporal Fusion Transformer (TFT), Hierarchical Reconciliation Forecasting,&nbsp; Product-based forecast, Full-stack development.
+                </p>
               </div>
-              <div class="card-footer d-flex align-items-center justify-content-between">
-                <div class="post-author d-flex align-items-center gap-2">
-                  <img src="assets/img/testimonial-2.jpg" alt="Varun Chavan" class="avatar rounded-circle" width="36" height="36" loading="lazy" />
-                  <span class="author">Varun Chavan</span>
-                </div>
-                <div class="post-date"><span class="bi bi-clock"></span> 10 min</div>
+              <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="author">Oriental Yeast Co., Ltd. · Industrial Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OYC spare-parts management -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
+              <div class="card-body">
+                <h3 class="card-title mb-2">Company-Wide Spare Part Management System</h3>
+                <p class="card-description mb-2">
+                  Led the development and deployment of a Spare-parts inventory system using
+                  Microsoft PowerApps.&nbsp;</p>
+                <p class="small text-muted mb-0">
+                  <strong><span style="font-weight: bolder;">Skills:</span></strong> Microsoft PowerApps, Power Automate, Factory inventory management.</p>
+              </div>
+              <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="author">Oriental Yeast Co., Ltd. · Industrial Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidewalk autonomous delivery vehicle -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
+              <div class="card-body">
+                <h3 class="card-title mb-2">All-Terrain Autonomous Vehicle (ATAV)</h3>
+                <p class="card-description mb-2">
+                  Developed a sidewalk-oriented autonomous vehicle concept for delivering food items in challenging
+                  Indian road conditions. Designed for rough sidewalks, uneven surfaces, and varied terrain,
+                  the platform uses a rocker–bogie mechanism to maintain mobility over obstacles and irregular
+                  ground while carrying items between locations.
+                </p>
+                <p class="small text-muted mb-1">
+                  <strong><span style="font-weight: bolder;">Skills:</span></strong>&nbsp;SOLIDWORKS, Arduino MEGA.
+                </p>
+              </div>
+              <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="author">Savitribai Phule Pune University · Student Project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agricultural bicycle -->
+          <div class="col-lg-12">
+            <div class="card card-blog">
+              <div class="card-body">
+                <h3 class="card-title mb-2">Semi-Automated Seed and Fertilizer Sowing Bicycle</h3>
+                <p class="card-description mb-2">
+                  Designed a low-cost, bicycle-based agricultural system to assist with ploughing, seed sowing,
+                  and fertilizer spreading. The project aimed to combine multiple farming operations in one
+                  accessible machine, reducing upfront equipment costs and the manual effort required for
+                  small-scale field work.
+                </p>
+                <p class="small text-muted mb-1">
+                  <strong><span style="font-weight: bolder;">Skills:</span></strong> Mechanical product design, CATIA.</p>
+              </div>
+              <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="author">Government Polytechnic College · Student Project</span>
               </div>
             </div>
           </div>
@@ -448,6 +567,48 @@
       </div>
     </section>
     <!-- /Projects -->
+
+    <!-- ======= Photography / Instagram ======= -->
+    <section id="photography" class="blog-mf sect-pt4 route bg-photo" style="background-image:url('assets/img/about-bg.jpg')">
+      <div class="container glass-panel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">Photography</h3>
+              <div class="line-mf"></div>
+              <p class="mb-2">Moments captured through my lens.</p>
+              <p class="mb-4">
+                <a href="https://www.instagram.com/lenscape20/" target="_blank" rel="noopener noreferrer"
+                   class="instagram-profile-link" aria-label="Visit LENSCAPE20 photography on Instagram">
+                  <i class="bi bi-instagram" aria-hidden="true"></i> @LENSCAPE20
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram's native public-profile embed shows a preview grid of recent posts.
+             Requires the Instagram profile to be public and website embeds to be enabled.
+             Instagram controls the number and presentation of the photos. -->
+        <div class="instagram-embed-shell" aria-label="LENSCAPE20 Instagram profile preview">
+          <blockquote class="instagram-media"
+                      data-instgrm-permalink="https://www.instagram.com/lenscape20/"
+                      data-instgrm-version="14"
+                      style="background:#fff; border:0; margin:0 auto; max-width:540px; min-width:300px; width:100%;">
+            <a href="https://www.instagram.com/lenscape20/" target="_blank" rel="noopener noreferrer">
+              View @LENSCAPE20's photography on Instagram
+            </a>
+          </blockquote>
+        </div>
+        <div class="text-center mt-4">
+          <a class="btn btn-primary" href="https://www.instagram.com/lenscape20/"
+             target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram" aria-hidden="true"></i> View Full Photography Gallery
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- /Photography -->
 
     <!-- ======= YouTube ======= -->
     <section id="work" class="portfolio-mf sect-pt4 route bg-photo" style="background-image:url('assets/img/youtube-bg.jpg')">
@@ -556,7 +717,7 @@
             <div class="socials">
               <ul>
                 <!-- Facebook removed per request -->
-                <li><a href="#" aria-label="Instagram"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
+                <li><a href="https://www.instagram.com/lenscape20/" target="_blank" rel="noopener noreferrer" aria-label="LENSCAPE20 photography on Instagram"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
                 <li><a href="https://www.youtube.com/channel/UCEnBtPoHVPgS22vQDTKXeGA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="ico-circle"><i class="bi bi-youtube"></i></span></a></li>
                 <li><a href="https://www.linkedin.com/in/varun-chavan-275b6a158/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
               </ul>
@@ -581,6 +742,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- Instagram native profile embed (requires a public account with embeds enabled) -->
+  <script async src="https://www.instagram.com/embed.js"></script>
 
   <!-- Vendor JS -->
   <script src="assets/vendor/purecounter/purecounter.js" defer></script>
